@@ -1,9 +1,9 @@
 #!/bin/sh
 
-: ACCEPT_STRING=${ACCEPT_STRING:-127.0.0.1:6379}
+ACCEPT_STRING=${ACCEPT_STRING:-127.0.0.1:6379}
 
 if [ -z ${CONNECT_STRING} ]; then
-    echo "Must Specifiy CONNECT_STRING variable" 1>&2
+    echo "Must Specify CONNECT_STRING variable" 1>&2
     echo "In format <host>:<port>" 1>&2
     exit 1
 fi
