@@ -1,8 +1,9 @@
 #!/bin/sh
 
 ACCEPT_STRING=${ACCEPT_STRING:-127.0.0.1:6379}
+LOG_LEVEL=${LOG_LEVEL:-notice}
 
-if [ -z ${CONNECT_STRING} ]; then
+if [ -z "${CONNECT_STRING}" ]; then
     echo "Must Specify CONNECT_STRING variable" 1>&2
     echo "In format <host>:<port>" 1>&2
     exit 1
@@ -14,7 +15,8 @@ verify = 2
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 delay = yes
-foreground=yes
+foreground = yes
+debug = ${LOG_LEVEL}
 [redislabs]
 client = yes
 accept = ${ACCEPT_STRING}
